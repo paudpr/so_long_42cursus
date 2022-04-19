@@ -32,7 +32,7 @@ void	read_map(char **argv, t_map *map)
 	i = 0;
 	while (line)
 	{
-		save_coords(line, i, map);
+		map->coords[i] = ft_strdup(line);
 		i++;
 		free(line);
 		line = get_next_line(fd);

@@ -10,7 +10,6 @@
 # include <math.h>
 
 
-
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -57,11 +56,24 @@ int		check_valid_args(int argc);
 /* read_map.c */
 void	get_xy_size(char **argv, t_map *map);
 size_t	split_len(char **split);
+void	save_coords(char *line, int i, t_map *map);
+void	check_border(t_map *map);
+void	check_chars(t_map *map);
 
 /* fill_img.c */
 void		draw_map(t_mlx *mlx, t_map *map);
-void		fill_img(char code, t_map *map, t_mlx *mlx, t_coord coord);
+void		fill_img(char code, t_mlx *mlx, t_coord coord);
 t_sprites	*get_sprites(t_mlx *mlx);
+
+/* so_long.c */
+void	so_long(t_mlx *mlx, t_map *map);
+
+/* utils.c */
+void	ft_free_double(char **tab);
+void	print_error(void);
+
+/* hooks.c */
+void	define_hooks(t_mlx *mlx);
 
 
 #endif
