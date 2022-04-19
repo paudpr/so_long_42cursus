@@ -1,6 +1,5 @@
 #include "so_long.h"
 
-
 int	check_valid_args(int argc)
 {
 	if (argc != 2)
@@ -16,7 +15,6 @@ void	init_map(t_map *map)
 	map->coords = NULL;
 }
 
-//coje map para poder tener los size
 void	read_map(char **argv, t_map *map)
 {
 	int			fd;
@@ -60,7 +58,6 @@ void	map_main(int argc, char **argv, t_map *map)
 	read_map(argv, map);
 	check_map(map);
 }
-
 
 /*
 get xy size

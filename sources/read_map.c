@@ -47,25 +47,26 @@ void	save_coords(char *line, int i, t_map *map)
 
 void	check_border(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(i < map->size_y)
+	while (i < map->size_y)
 	{
 		j = 0;
-		while(j < map-> size_x)
+		while (j < map-> size_x)
 		{
-			if(i == 0 || i == map->size_y - 1)
+			if (i == 0 || i == map->size_y - 1)
 			{
-				if(map->coords[i][j] != '1')
+				if (map->coords[i][j] != '1')
 					print_error();
 			}
 			j++;
 		}
-		if(i > 0 && i < map->size_y - 1)
+		if (i > 0 && i < map->size_y - 1)
 		{
-			if(map->coords[i][0] != '1' || map->coords[i][map->size_x - 1] != '1')
+			if (map->coords[i][0] != '1'
+				|| map->coords[i][map->size_x - 1] != '1')
 				print_error();
 		}
 		i++;
@@ -74,31 +75,31 @@ void	check_border(t_map *map)
 
 void	check_chars(t_map *map)
 {
-	int i;
-	int j;
-	int p;
-	int c;
-	int e;
+	int	i;
+	int	j;
+	int	p;
+	int	c;
+	int	e;
 
 	i = 0;
 	p = 0;
 	c = 0;
 	e = 0;
-	while(i < map->size_y)
+	while (i < map->size_y)
 	{
 		j = 0;
-		while(map->coords[i][j])
+		while (map->coords[i][j])
 		{
-			if(map->coords[i][j] == 'P')
+			if (map->coords[i][j] == 'P')
 				p++;
-			if(map->coords[i][j] == 'C')
+			if (map->coords[i][j] == 'C')
 				c++;
-			if(map->coords[i][j] == 'e')
+			if (map->coords[i][j] == 'e')
 				e++;
 			j++;
 		}
 		i++;
 	}
-	if(p != 1 || c == 0 || e == 0)
+	if (p != 1 || c == 0 || e == 0)
 		print_error();
 }
