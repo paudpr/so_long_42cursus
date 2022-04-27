@@ -56,9 +56,10 @@ LMLX_DIR_MACOS_SIERRA = $(LIB_PATH)/mlx_macos_sierra
 SRC_FILES =	main.c\
 			map_main.c \
 			read_map.c \
-			tiles.c \
+			utils.c\
 			so_long.c \
-			utils.c \
+			hooks.c \
+			draw_map.c \
 			
 
 
@@ -92,6 +93,9 @@ endif
 .PHONY: all clean fclean re
 
 all: $(NAME) $(CHECKER_NAME)
+
+debug: CFLAGS +=  -g3 -fsanitize=address
+debug: $(NAME)
 
 $(NAME): $(LFT_NAME) $(LMLX_NAME) $(OBJ)
 	$(CC) $^ -o $@ $(CCFLAGS) $(LDFLAGS) $(LDLIBS)
