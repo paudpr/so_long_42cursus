@@ -103,3 +103,4 @@ t_ptr *ptr, t_coord *coord)
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->win_ptr,
 			images->enemy.img, coord->x, coord->y);
 }
+*/

@@ -41,6 +41,16 @@ int		check_valid_args(int argc);
 /* read_map.c */
 void	get_xy_size(char **argv, t_map *map);
 size_t	split_len(char **split);
+void	save_coords(char *line, int i, t_map *map);
+void	check_border(t_map *map);
+void	check_chars(t_map *map);
+
+/* so_long.c */
+void	so_long(t_mlx *mlx, t_map *map);
+
+/* utils.c */
+void	print_error(void);
+void	ft_free_double(char **tab);
 
 
 #endif

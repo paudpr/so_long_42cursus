@@ -55,7 +55,10 @@ LMLX_DIR_MACOS_SIERRA = $(LIB_PATH)/mlx_macos_sierra
 # SOURCES
 SRC_FILES =	main.c\
 			map_main.c \
-			utils.c\
+			read_map.c \
+			tiles.c \
+			so_long.c \
+			utils.c \
 			
 
 
