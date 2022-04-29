@@ -60,7 +60,7 @@ SRC_FILES =	main.c\
 			so_long.c \
 			draw_map.c \
 			def_mario.c \
-			hooks \
+			hooks.c \
 			
 
 

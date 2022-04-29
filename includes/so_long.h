@@ -47,7 +47,6 @@ typedef struct s_sprites
 	void *collect;
 	void *exit;
 	void *mario;
-	// void *mush;
 }	t_sprites;
 
 typedef struct s_all
