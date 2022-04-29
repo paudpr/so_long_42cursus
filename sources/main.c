@@ -14,7 +14,6 @@ int	main(int argc, char **argv)
 	atexit(check_leaks);
 	map_main(argc, argv, &map);
 	so_long(&mlx, &map);
-	printf("AQUI main\n");
 	ft_free_double(map.coords);
 	return (0);
 }
