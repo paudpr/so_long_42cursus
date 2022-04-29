@@ -58,13 +58,11 @@ void	check_chars(t_map *map)
 {
 	int	i;
 	int	j;
-	int	p;
-	int	c;
-	int	e;
+	int p;
+	int e;
 
 	i = 0;
 	p = 0;
-	c = 0;
 	e = 0;
 	while (i < map->size_y)
 	{
@@ -74,13 +72,13 @@ void	check_chars(t_map *map)
 			if (map->coords[i][j] == 'P')
 				p++;
 			if (map->coords[i][j] == 'C')
-				c++;
+				map->collect++;
 			if (map->coords[i][j] == 'E')
 				e++;
 			j++;
 		}
 		i++;
 	}
-	if (p != 1 || c == 0 || e == 0)
+	if (p != 1 || map->collect == 0 || e == 0)
 		print_error();
 }

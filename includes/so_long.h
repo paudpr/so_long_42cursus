@@ -15,12 +15,15 @@ typedef struct s_mlx
 	void	*mlx;
 	void	*win;
 	void	*image;
-	char	*data_addr;
-	int		bits_per_pixel;
-	int		endian;
-	int		size_line;
-	int		counter;
-} t_mlx;
+}	t_mlx;
+
+typedef struct s_hero
+{
+	int	x;
+	int	y;
+	int	collect;
+	int	moves;
+}	t_hero;
 
 typedef struct s_map
 {
@@ -28,7 +31,8 @@ typedef struct s_map
 	int		size_y;
 	int		collect;
 	char	**coords;
-} t_map;
+	t_hero	mario;
+}	t_map;
 
 typedef struct s_coord
 {
@@ -46,6 +50,13 @@ typedef struct s_sprites
 	// void *mush;
 }	t_sprites;
 
+typedef struct s_all
+{
+	t_map map;
+	t_mlx mlx;
+	t_hero	mario;
+	t_sprites	sprites;
+}	t_all;
 
 /* map_main.c */
 void	map_main(int argc, char **argv, t_map *map);
@@ -61,9 +72,9 @@ void	check_border(t_map *map);
 void	check_chars(t_map *map);
 
 /* fill_img.c */
-void		draw_map(t_mlx *mlx, t_map *map);
-void		fill_img(char code, t_mlx *mlx, t_coord coord);
-t_sprites	*get_sprites(t_mlx *mlx);
+void		draw_map(t_mlx *mlx, t_map *map, t_sprites *sprites);
+void		fill_img(char code, t_mlx *mlx, t_coord coord, t_sprites *sprites);
+t_sprites	get_sprites(t_mlx *mlx);
 
 /* so_long.c */
 void	so_long(t_mlx *mlx, t_map *map);
@@ -71,9 +82,14 @@ void	so_long(t_mlx *mlx, t_map *map);
 /* utils.c */
 void	ft_free_double(char **tab);
 void	print_error(void);
+void clean_image(t_mlx *mlx, t_sprites *sprites);
+t_all join_all(t_mlx *mlx, t_map *map, t_sprites *sprites);
+
+/* def_mario.c */
+t_hero def_mario(t_map *map);
 
 /* hooks.c */
-void	define_hooks(t_mlx *mlx);
-
+int handle_keypress(int keycode, t_all *game);
+int close_window(t_all *game);
 
 #endif

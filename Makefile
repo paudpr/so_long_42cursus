@@ -58,8 +58,9 @@ SRC_FILES =	main.c\
 			read_map.c \
 			utils.c\
 			so_long.c \
-			hooks.c \
 			draw_map.c \
+			def_mario.c \
+			hooks \
 			
 
 

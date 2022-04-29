@@ -58,15 +58,3 @@ void	map_main(int argc, char **argv, t_map *map)
 	read_map(argv, map);
 	check_map(map);
 }
-
-/*
-get xy size
-save coords en array
-check map -> tengo todos los bordes cerrados
-check map -> tengo todos los caracteres necesarios
-		(p = 1)(c >0)(e >0)
-		
-poner tiles en imagen -> tipo de dato
-crear imagen
-llenar imagen
-*/
