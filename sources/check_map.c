@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pdel-pin <pdel-pin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 19:01:47 by pdel-pin          #+#    #+#             */
+/*   Updated: 2022/05/03 19:01:49 by pdel-pin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	check_border(t_map *map)
@@ -23,6 +35,27 @@ void	check_border(t_map *map)
 			if (map->coords[i][0] != '1'
 				|| map->coords[i][map->size_x - 2] != '1')
 				print_error();
+		}
+		i++;
+	}
+}
+
+static void	check_valid(t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < map->size_y)
+	{
+		j = 0;
+		while (j < map->size_x - 1)
+		{
+			if (map->coords[i][j] != 'P' && map->coords[i][j] != 'C'
+				&& map->coords[i][j] != 'E' && map->coords[i][j] != '0'
+				&& map->coords[i][j] != '1' && map->coords[i][j] != '\n')
+				print_error();
+			j++;
 		}
 		i++;
 	}
@@ -59,6 +92,7 @@ void	check_chars(t_map *map)
 
 void	check_map(t_map *map)
 {
+	check_valid(map);
 	check_border(map);
 	check_chars(map);
 }
